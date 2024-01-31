@@ -1,0 +1,4 @@
+../Src/keypad4x4.c:35:9:KEY4x4_Push	8	static
+../Src/keypad4x4.c:43:6:ConfigKeypad	16	static
+../Src/keypad4x4.c:64:6:KEY4x4_CheckCol	16	static
+../Src/keypad4x4.c:84:9:KEY4x4_GetKey	16	static

@@ -1,0 +1,76 @@
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <title>Tọa độ thiết bị</title>
+</head>
+<body>
+  
+  <img src="download.png" class="corner-image">
+  <a href="/bangchinh"><img src="./bangchinh.png" class="bangchinh"></a>
+  <a href="/login"><img src="https://img.freepik.com/free-icon/logout_318-10026.jpg?w=2000" class="logout"></a>
+  <a href="/changepassword"><img src="https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" class="infoUser"></a>
+  <a href="/createacc"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRfMvg1qfwBoF9gCPGRulJPps1FDPXGCeVxn-5tADliXIuYleG7DidLGFloUckDhnIfGs&usqp=CAU" class="postacc"></a>
+    
+    <h1 class="center-heading" >BẢNG TỌA ĐỘ THIẾT BỊ</h1>
+    <table class="button-container" id="idtable">
+      <tr>
+        <th><a href="/idthietbi" class="clickable">ID THIẾT BỊ</a></th>
+        <th colspan="2"><a href="/thoigian" class="clickable">THỜI GIAN TRUYỀN</a></th>
+        <th colspan="2" style="background-color:rgb(51, 151, 51) ;"><a href="/toadothietbi" class="clickable">TỌA ĐỘ THIẾT BỊ</a></th>
+        <th colspan="2"><a href="/toadogateway" class="clickable">TỌA ĐỘ GATEWAY</a></th>
+        <th><a href="/khoangcach" class="clickable">KHOẢNG CÁCH</a></th>
+        <th><a href="/diachi" class="clickable">ĐỊA CHỈ KHẢO SÁT</a></th>
+        <th><a href="/map" class="clickable">MAPS</a></th>
+      </tr>
+    <tr>
+        <th>ID/SN</th>
+        <th>Năm tháng ngày</th>
+        <th>Giờ phút giây</th>
+        <th>Kinh độ</th>
+        <th>Vĩ độ</th>
+        <th>Kinh độ</th>
+        <th>Vĩ độ</th>
+        <th>Khoảng cách</th>  
+        <th>Địa chỉ</th>
+        <th>Http://</th>
+      </tr>
+      <% filteredProducts.forEach(filteredProducts => { %>
+        <tr>
+          <td><%= filteredProducts.iddevice %></td>
+          <td><%= filteredProducts.date.ngaythangnam %></td>
+          <td><%= filteredProducts.date.giophutgiay %></td>
+          <td><%= filteredProducts.coordinatesDevice.latitude %></td>
+          <td><%= filteredProducts.coordinatesDevice.longtitude %></td>
+          <td><%= filteredProducts.coordinatesGateway.latitude %></td>
+          <td><%= filteredProducts.coordinatesGateway.longtitude %></td>
+          <td><%= filteredProducts.distance %> m</td>
+          <td><%= filteredProducts.diachi %></td>
+          <td>
+            <a href="https://www.google.com/maps?q=<%= filteredProducts.coordinatesDevice.latitude %>,<%= filteredProducts.coordinatesDevice.longtitude %>" target="_blank">
+              Go to Google Maps
+            </a>
+          </td>
+        </tr>
+      <% }) %>
+    </table>
+  
+  <div class="form-thoigian">
+    <form action="/toadothietbi" method="GET">
+      <button type="submit" id="searchButton" > Tìm kiếm </button>
+      <label for="param1"></label>
+      <input type="text" name="param1" id="param1">
+      <label for="param2"></label>
+      <input type="text" name="param2" id="param2">
+    </form>
+  </div>
+  
+  <script>
+    const searchButton = document.getElementById("searchButton");
+  
+    searchButton.addEventListener("click", function() {
+      searchButton.style.backgroundColor = "rgb(255, 183, 125)"; 
+    });
+  </script>
+
+  
+</body>

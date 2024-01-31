@@ -1,0 +1,14 @@
+../Src/uartRingBuffer.c:61:6:Ringbuf_init	8	static
+../Src/uartRingBuffer.c:91:6:store_char	24	static
+../Src/uartRingBuffer.c:115:5:Look_for	32	static
+../Src/uartRingBuffer.c:154:5:Uart_read	24	static
+../Src/uartRingBuffer.c:202:6:Uart_write	24	static
+../Src/uartRingBuffer.c:236:5:IsDataAvailable	16	static
+../Src/uartRingBuffer.c:250:6:Uart_sendstring	24	static
+../Src/uartRingBuffer.c:268:6:GetDataFromBuffer	56	static
+../Src/uartRingBuffer.c:332:6:Uart_flush	16	static
+../Src/uartRingBuffer.c:356:5:Uart_peek	16	static
+../Src/uartRingBuffer.c:395:5:Copy_upto	40	static
+../Src/uartRingBuffer.c:448:5:Get_after	32	static
+../Src/uartRingBuffer.c:470:5:Wait_for	24	static
+../Src/uartRingBuffer.c:559:6:Uart_isr	32	static

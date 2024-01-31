@@ -1,0 +1,4 @@
+../Src/ESP_DATA_HANDLER.c:355:7:Send1	16	static
+../Src/ESP_DATA_HANDLER.c:362:6:Send	16	static
+../Src/ESP_DATA_HANDLER.c:370:6:SendCIPSEND	48	static
+../Src/ESP_DATA_HANDLER.c:380:6:ESP_Init	744	static

@@ -1,0 +1,2 @@
+../Src/NMEA.c:39:5:decodeGGA	80	static
+../Src/NMEA.c:224:5:decodeRMC	104	static

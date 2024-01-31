@@ -1,0 +1,194 @@
+.center-heading {
+  text-align: center; /* Căn chỉnh văn bản vào giữa */
+  left: 30px;
+  right: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: Verdana;
+  color: rgb(66, 67, 63);
+}
+ #idtable {
+    width: 100%; /* Thiết lập độ rộng của bảng là 100% của phần tử cha */
+    border-collapse: collapse; /* Hợp nhất các đường viền của các ô trong bảng */
+    margin-bottom: 0px;
+    text-size-adjust: 10;
+    border-radius: 5px;
+    background-color: rgb(178, 222, 248);
+  }
+  
+  #idtable th, #idtable td {
+    border: 2px solid #ffffff; /* Định dạng đường viền của các ô */
+    padding: 8px; /* Khoảng cách giữa nội dung và đường viền của các ô */
+    text-align: center; /* Căn chỉnh nội dung trong các ô về giữa */
+    font-size: 13;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 4px;
+  }
+  
+  #idtable th {
+    background-color: #91b1f4; /* Đặt màu nền cho hàng tiêu đề */
+    font-weight: bold; /* In đậm văn bản của hàng tiêu đề */
+  }
+  
+  /* Tùy chỉnh độ rộng của các cột bảng (tùy theo số liệu) */
+  #idtable th:nth-child(1), #idtable td:nth-child(1) {
+    width: 80px;
+  }
+  
+  #idtable th:nth-child(2), #idtable td:nth-child(2) {
+    width: 90px;
+  }
+  
+  #idtable th:nth-child(3), #idtable td:nth-child(3) {
+    width: 90px;
+  }
+  #idtable th:nth-child(4), #idtable td:nth-child(4) {
+    width: 90px;
+  }
+  #idtable th:nth-child(5), #idtable td:nth-child(5) {
+    width: 90px;
+  }
+  #idtable th:nth-child(6), #idtable td:nth-child(6) {
+    width: 90px;
+  }
+  #idtable th:nth-child(7), #idtable td:nth-child(7) {
+    width: 90px;
+  }
+  #idtable th:nth-child(9), #idtable td:nth-child(9) {
+    width: 120px;
+  }
+
+
+  /* Add border to table cells (th and td) */
+  .cssmap th,
+  .cssmap td {
+    border: 2px solid #000000; /* Định dạng đường viền của các ô */
+    padding: 8px; /* Khoảng cách giữa nội dung và đường viền của các ô */
+    text-align: center; /* Căn chỉnh nội dung trong các ô về giữa */
+  }
+
+  /* Style for the clickable text */
+
+  /* Set the width of the <th> elements */
+  .cssmap th:nth-child(1) {
+    width: 80px; /* Adjust the width as needed */
+  }
+
+  .cssmap th:nth-child(2),
+  .cssmap th:nth-child(3) ,
+  .cssmap th:nth-child(4)
+  .cssmap th:nth-child(5)
+  .cssmap th:nth-child(6)
+  .cssmap th:nth-child(7)
+  {
+    width: 90px; /* Adjust the width as needed */
+  }
+  .cssmap th:nth-child(7){
+    width: 120px;
+  }
+  
+  body {
+    font-size: 14px; /* Đặt cỡ chữ cho body của trang */
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  }
+
+  .button-container {
+    width: 100%; /* Set the table width to 100% of the available container width */
+    border: 2px solid #ccc; /* You can adjust the color and size of the border as needed */
+    border-collapse: collapse; /* Optional: To collapse table borders into a single border */
+  }
+
+  /* Add border to table cells (th and td) */
+  .button-container th,
+  .button-container td {
+    border: 2px solid #ccc; /* You can adjust the color and size of the cell borders as needed */
+    padding: 8px; /* Optional: Add some padding to the cells for better visual appearance */
+  }
+
+  /* Style for the clickable text */
+  .clickable {
+    display: block;
+    cursor: pointer; /* Change the cursor to a hand pointer on hover to indicate it's clickable */
+    color: rgb(82, 14, 124); /* Set the text color to blue, you can change it to match your design */
+    text-decoration: none; /* Add an underline to indicate it's a link */
+  }
+
+
+
+/* CSS */
+.corner-image {
+  position: absolute;
+  top: 10px; /* Điều chỉnh khoảng cách từ top (ví dụ: 10px) */
+  left: 23px; /* Điều chỉnh khoảng cách từ left (ví dụ: 10px) */
+  width: 95px; /* Điều chỉnh chiều rộng của hình ảnh */
+  height: 80px; /* Điều chỉnh chiều cao của hình ảnh */
+  z-index: 999; /* Để đảm bảo hình ảnh nằm trên các phần tử khác nếu cần thiết */
+}
+#searchButton {
+  border-radius: 4px;
+}
+#param1{
+  border-radius: 4px;
+}
+#param2{
+  border-radius: 4px;
+}
+
+.logout {
+  position: fixed; /* Đảm bảo hình ảnh được giữ ở một vị trí cố định trên trang */
+    top: 10px; /* Điều chỉnh khoảng cách từ trên xuống */
+    right: 25px; /* Điều chỉnh khoảng cách từ phải sang */
+    width: 23px;
+    height: 23px;
+}
+.infoUser{
+  position: fixed;
+  top: 10px;
+  right: 60px;
+  width: 23px;
+  height: 23px;
+}
+.postacc{
+  position: fixed;
+  top: 10px;
+  right: 93px;
+  width: 23px;
+  height: 23px;
+}
+.bangchinh{
+  position: fixed;
+  top: 10px;
+  right: 128px;
+  width: 23px;
+  height: 23px;
+}
+.form-thoigian {
+  position: relative; /* Cố định biểu mẫu */
+  bottom: 50px; /* Cách lề dưới 10px */
+  top: 10px;
+  left: 10px; /* Cách lề trái 10px */
+  width: 420px; /* Độ rộng của biểu mẫu */
+  background-color: #f2f2f2; /* Màu nền */
+  padding: 10px; /* Khoảng cách giữa các phần tử bên trong biểu mẫu */
+  border: 1px solid #ccc; /* Đường viền */
+  border-radius: 5px; /* Bo tròn góc */
+}
+.form-idthietbi {
+  position: relative; /* Cố định biểu mẫu */
+  bottom: 50px; 
+  top: 10px;
+  left: 10px; /* Cách lề trái 10px */
+  width: 245px; /* Độ rộng của biểu mẫu */
+  background-color: #f2f2f2; /* Màu nền */
+  padding: 10px; /* Khoảng cách giữa các phần tử bên trong biểu mẫu */
+  border: 1px solid #ccc; /* Đường viền */
+  border-radius: 5px; /* Bo tròn góc */
+}
+#doancuoi-idthietbi{
+  position: relative;
+  bottom: 15px;
+  right: 10px;
+  left: 90px;
+  font-size: 10;
+}

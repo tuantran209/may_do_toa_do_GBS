@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="styles.css">
+   <style>#map { position: absolute; width: 76%; height: 76%;background-color: rgb(195, 230, 230);margin-top:0 px;margin-bottom: 0px;margin-left: 150px;margin-bottom: 0px;margin-right: 150px;}
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+    crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+    crossorigin=""/>
+</head>
+<body>
+
+    
+    <img src="download.png" class="corner-image">
+    <a href="/bangchinh"><img src="./bangchinh.png" class="bangchinh"></a>
+      <a href="/login"><img src="https://img.freepik.com/free-icon/logout_318-10026.jpg?w=2000" class="logout"></a>
+    <a href="/changepassword"><img src="https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" class="infoUser"></a>
+    <a href="/createacc"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRfMvg1qfwBoF9gCPGRulJPps1FDPXGCeVxn-5tADliXIuYleG7DidLGFloUckDhnIfGs&usqp=CAU" class="postacc"></a>
+    
+    
+    <h1 class="center-heading">BẢNG HIỂN THỊ BẢN ĐỒ</h1>
+    
+    <table class="button-container" id="idtable">
+        <tr>
+          <th><a href="/idthietbi" class="clickable">ID THIẾT BỊ</a></th>
+          <th colspan="2"><a href="/thoigian" class="clickable">THỜI GIAN TRUYỀN</a></th>
+          <th colspan="2"><a href="/toadothietbi" class="clickable">TỌA ĐỘ THIẾT BỊ</a></th>
+          <th colspan="2"><a href="/toadogateway" class="clickable">TỌA ĐỘ GATEWAY</a></th>
+          <th><a href="/khoangcach" class="clickable">KHOẢNG CÁCH</a></th>
+          <th><a href="/diachi" class="clickable">ĐỊA CHỈ KHẢO SÁT</a></th>
+          <th style="background-color:rgb(51, 151, 51) ;"><a href="/map" class="clickable">MAPS</a></th>
+        </tr>
+      <tr>
+          <th>ID/SN</th>
+          <th>Năm tháng ngày</th>
+          <th>Giờ phút giây</th>
+          <th>Kinh độ</th>
+          <th>Vĩ độ</th>
+          <th>Kinh độ</th>
+          <th>Vĩ độ</th>
+          <th>Khoảng cách</th>  
+          <th>Địa chỉ</th>
+          <th>Http://</th>
+        </tr>
+    </table>
+    <main>
+    <div id="map"></div>
+    </main>
+
+    <script>
+        const urldo = 'https://www.publicdomainpictures.net/pictures/310000/velka/red-circle.png';
+        const urlxanh = 'https://upload.wikimedia.org/wikipedia/commons/1/11/Pan_Green_Circle.png';    
+        var tmpurl;   
+
+async function fetchData() {          
+        try {
+            const response = await fetch('/jsonForMap', {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                },
+            });
+            if (!response.ok) { throw new Error('Không thể fetch dữ liệu từ máy chủ.' );}
+            const data = await response.json();
+            return data; 
+        }catch (error){ console.error('Có lỗi khi fetch dữ liệu:', error);}}   
+
+async  function showMap(){
+        await  fetchData().then(data => {
+            
+            var k =  JSON.stringify(data); 
+            var arr = Object.values(data);  
+            arr = arr[0]; 
+            var tmp1 = arr[arr.length-1].iddevice;
+            var tmp = arr[arr.length-1].coordinatesDevice;
+            map.setView([parseFloat(tmp.latitude) , parseFloat(tmp.longtitude)]);
+            
+
+            for ( let i =0 ; i<arr.length ;i++ ){
+                tmp = arr[i].coordinatesDevice;tmp1 = arr[i].iddevice;
+
+                var trangthai;
+                if(arr[i].state ==1){
+                    trangthai = "Đang hoạt động";
+                    tmpurl = urlxanh;
+                }
+                else{
+                    tmpurl = urldo; trangthai = "Không hoạt động";
+                }
+
+                const markerContent = "<div style='width: 600px; padding: 10px; font-size: 14px;'>" +
+                     "<b>ID: </b>" + tmp1 + "<br/>" +
+                     "Tọa độ: " + "<br/>" + 
+                     tmp.latitude + ", " + tmp.longtitude + "<br/>" +
+                     "Ngày tạo: " + arr[i].date.ngaythangnam + ", " + arr[i].date.giophutgiay + "<br/>" + 
+                     "Trạng thái: " + trangthai + "<br/>";
+
+                var customIcon = L.icon({ iconUrl: tmpurl , iconSize: [17,17]});
+
+                marker = L.marker([parseFloat(tmp.latitude) ,parseFloat(tmp.longtitude)], { icon: customIcon }).addTo(map).bindPopup(markerContent);
+            
+            }
+
+        })
+        .catch(error => {
+            console.error(error);
+        });  
+}
+
+
+        async function centerr(lat,lng) {   
+        const markerContent = "<b>Vị trí của bạn</b><br/>" +
+        "Latitude: " + lat + "<br/>" +
+        "Longitude: " + lng + "<br/>" ;
+        
+        var customIcon;
+        customIcon = L.icon({ iconUrl: urldo, iconSize: [17,17]});
+        marker = L.marker([lat, lng], { icon: customIcon }).addTo(map).bindPopup(markerContent);
+        }
+
+        const map = L.map('map'); 
+        map.setView([51.505, -0.09], 13); 
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map); 
+        showMap();
+
+</script>
+  
+</body>
+</html>

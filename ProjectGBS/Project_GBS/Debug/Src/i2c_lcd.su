@@ -1,0 +1,9 @@
+../Src/i2c_lcd.c:23:6:delay_ms	24	static
+../Src/i2c_lcd.c:33:6:lcd_Write_byte	16	static
+../Src/i2c_lcd.c:55:6:I2C_LCD_Configuration	32	static
+../Src/i2c_lcd.c:86:6:lcd_init	8	static
+../Src/i2c_lcd.c:117:6:lcd_Data_Write	24	static
+../Src/i2c_lcd.c:136:6:lcd_Control_Write	24	static
+../Src/i2c_lcd.c:156:6:lcd_send_string	16	static
+../Src/i2c_lcd.c:164:6:Delete_LCD	8	static
+../Src/i2c_lcd.c:173:6:Newline_LCD	8	static
